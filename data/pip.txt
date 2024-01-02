@@ -1,0 +1,13 @@
+pip3 install discord.py
+pip3 install asyncio
+pip3 install PyNaC
+pip3 install youtube_dl
+pip3 install yt_dlp
+pip3 install pandas
+pip3 install requests
+pip3 install gTTS
+pip3 install beautifulSoup4
+pip3 install openpyxl
+pip3 install -U discord.py[voice]
+pip3 install table2ascii
+pip3 install selenium
