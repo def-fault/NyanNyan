@@ -83,7 +83,7 @@ class Music(commands.Cog):
             ctx.voice_client.play(player, after=lambda e: print(f'Player error: {e}') if e else None)
 
         ctx.voice_client.source.volume = self.YOU_Volume
-        await ctx.send(f'{player.title} 음악을 재생하겠다냥! ')
+        await ctx.send(f'"{player.title} "을 재생하겠다냥! ')
 
     @commands.command(aliases=['볼륨','소리'])
     async def volume(self, ctx, volume: int):
@@ -137,8 +137,8 @@ df3 = pd.read_excel('data.xlsx', sheet_name = 'Extreme') # 익스트림 몬스�
 df4 = pd.read_excel('data.xlsx', sheet_name = 'Option') # 추옵표
 df6 = pd.read_excel('data.xlsx', sheet_name = 'Hexa') # 6차전직표
 
-TTS_Volume = 1;
-YOU_Volume = 1;
+TTS_Volume = 1
+YOU_Volume = 1
 
 ### 함수 파트
 
@@ -687,8 +687,6 @@ async def help(ctx):
 
         embed = discord.Embed(title="▶ 냥냥이 명령어 모음집", description="&명령어 &도움말 &도움 &help", color=0x00D4FF)
         embed.add_field(name="", value="", inline=False)
-        embed.add_field(name="", value="", inline=False)
-        embed.add_field(name="", value="", inline=False)
 
         embed.add_field(name="▶ 메이플 유틸리티", value="", inline=False)
         embed.add_field(name="&극성비 &비약 &극한성장의비약  ", value="\n-  N레벨에 극성비로 오르는 경험치를 계산합니다.", inline=False)
@@ -701,9 +699,6 @@ async def help(ctx):
         embed.add_field(name="&분배 &분배금", value="- N명에게 나눌 분배금을 계산합니다.\n" + "- 경매장에서 M메소를 수령한 후 N명에게 분배금을 계산합니다", inline=False)
 
         embed.add_field(name="", value="", inline=False)
-        embed.add_field(name="", value="", inline=False)
-        embed.add_field(name="", value="", inline=False)
-
 
         embed.add_field(name="▶ 편리한 유틸리티", value="", inline=False)
         embed.add_field(name="&입장 &들어와 &join", value="- 냥냥이를 음성 채널에 들여보냅니다..", inline=False)
@@ -712,8 +707,6 @@ async def help(ctx):
         embed.add_field(name="&볼륨 &소리 &volume", value="- 유튜브 음악 볼륨을 조절합니다. (*TTS와 별개의 볼륨입니다.)", inline=False)
         embed.add_field(name="&말해 &TTS &tts", value="- TTS기능으로 말합니다. ", inline=False)
 
-        embed.add_field(name="", value="", inline=False)
-        embed.add_field(name="", value="", inline=False)
         embed.add_field(name="", value="", inline=False)
 
         embed.add_field(name="▶ 냥냥이랑 대화하기", value="", inline=False)
