@@ -686,8 +686,7 @@ async def 퇴장(ctx):
 async def help(ctx):
 
         embed = discord.Embed(title="▶ 냥냥이 명령어 모음집", description="&명령어 &도움말 &도움 &help", color=0x00D4FF)
-        embed.add_field(name="", value="", inline=False)
-        embed.add_field(name="", value="", inline=False)
+
         embed.add_field(name="", value="", inline=False)
 
         embed.add_field(name="▶ 메이플 유틸리티", value="", inline=False)
@@ -697,11 +696,10 @@ async def help(ctx):
         embed.add_field(name="&헥사 &6차 &HEXA &hexa", value="- N레벨에서 필요한 헥사 재료 갯수를 검색합니다.\n" + "- N레벨에서 M레벨까지 필요한 헥사 재료 갯수를 검색합니다.", inline=False)
         embed.add_field(name="&추옵 &추가옵션 &무기 ", value="- 무기에 붙는 추가옵션 등급표를 검색합니다.", inline=False)
         embed.add_field(name="&캐릭터 &조회 &유저 ", value="- 유저의 캐릭터 정보를 검색합니다.", inline=False)
+        embed.add_field(name="&환산 &스탯 &스텟 &스펙 ", value="- 유저의 환산을 검색합니다.", inline=False)
+        embed.add_field(name="&분배 &분배금", value="- N명에게 나눌 분배금을 계산합니다.\n" + "- 경매장 M메소로 올린 아이템의 N명에게 분배금을 계산합니다", inline=False)
 
         embed.add_field(name="", value="", inline=False)
-        embed.add_field(name="", value="", inline=False)
-        embed.add_field(name="", value="", inline=False)
-
 
         embed.add_field(name="▶ 편리한 유틸리티", value="", inline=False)
         embed.add_field(name="&입장 &들어와 &join", value="- 냥냥이를 음성 채널에 들여보냅니다..", inline=False)
@@ -710,8 +708,6 @@ async def help(ctx):
         embed.add_field(name="&볼륨 &소리 &volume", value="- 유튜브 음악 볼륨을 조절합니다. (*TTS와 별개의 볼륨입니다.)", inline=False)
         embed.add_field(name="&말해 &TTS &tts", value="- TTS기능으로 말합니다", inline=False)
 
-        embed.add_field(name="", value="", inline=False)
-        embed.add_field(name="", value="", inline=False)
         embed.add_field(name="", value="", inline=False)
 
         embed.add_field(name="▶ 냥냥이랑 대화하기", value="", inline=False)
