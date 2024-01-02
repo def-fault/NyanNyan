@@ -549,9 +549,21 @@ async def 익몬(ctx, level):
 
     await ctx.send(embed=embed)
 
-@bot.command(aliases=['사귀자'])
+@bot.command(aliases=['여친확률'])
 async def 여친생길확률(ctx):
     await ctx.channel.send('...')
+
+@bot.command(aliases=['사귀자'])
+async def 데이트(ctx):
+    code_lines = [
+        'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/1.png',
+        'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/2.png',
+        'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/3.png'
+    ]
+    random_code = random.choice(code_lines)
+    embed = discord.Embed()
+    embed.set_thumbnail(url=random_code)
+    await ctx.send(embed=embed)
 
 @bot.command(aliases=['유저','조회'])
 async def 캐릭터(ctx, Search): # return level, job, world, guild, union, floor
