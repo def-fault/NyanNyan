@@ -687,7 +687,7 @@ async def help(ctx):
 
         embed = discord.Embed(title="▶ 냥냥이 명령어 모음집", description="&명령어 &도움말 &도움 &help", color=0x00D4FF)
         embed.add_field(name="", value="", inline=False)
-
+        '''
         embed.add_field(name="▶ 메이플 유틸리티", value="", inline=False)
         embed.add_field(name="&극성비 &비약 &극한성장의비약  ", value="\n-  N레벨에 극성비로 오르는 경험치를 계산합니다.", inline=False)
         embed.add_field(name="&익몬 &익스트림 &몬스터파크 ", value="- N레벨에 익몬으로 오르는 경험치를 계산합니다.", inline=False)
@@ -708,7 +708,7 @@ async def help(ctx):
         embed.add_field(name="&말해 &TTS &tts", value="- TTS기능으로 말합니다. ", inline=False)
 
         embed.add_field(name="", value="", inline=False)
-
+        '''
         embed.add_field(name="▶ 냥냥이랑 대화하기", value="", inline=False)
         embed.add_field(name="&사귀자", value="- 냥냥이에게 데이트를 신청합니다.", inline=False)
         embed.add_field(name="&여친생길확률", value="- 여자친구가 생길 확률을 계산합니다.", inline=False)
