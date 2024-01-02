@@ -528,7 +528,7 @@ async def EXP교환권(ctx, startlevel, endlevel=0):
 async def 극성비(ctx, level):
     await ctx.send('냥냥! 극한 성장의 비약을 가져왔냥?')
     await ctx.send("어디보자냥~ " + str(level) + "레벨에서 먹으면 어떻게 되는지 알아보겠다냥!")
-    if int(level) != 278:
+    if int(level) != 300:
         embed = discord.Embed(title=str(level) + "레벨 때 극성비를 먹었을 때 오르는 경험치량", description = str(EXPPotion(int(level))) + "%", color = 0xFF1493)
         embed.set_thumbnail(url="https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/img_potion.png")
     else:
@@ -539,7 +539,7 @@ async def 극성비(ctx, level):
 @bot.command(aliases=['몬스터파크','익스트림','익스트림몬스터파크'])
 async def 익몬(ctx, level):
     await ctx.channel.send('냥냥! 익스트림 몬스터파크에 놀러가는거냥?')
-    if int(level) !=276:
+    if int(level) !=300:
         await ctx.send("어디보자냥~ " + str(level) + "레벨에서 얼마나 경험치를 주는지 알아보겠다냥!")
         embed = discord.Embed(title=str(level) + "레벨 때 익스트림 몬스터파크에서 오르는 경험치량", description = "(평일) " + str(Extreme(int(level))) + "% (선데이) " + str(round(Extreme(int(level))*1.5,3)) + "%", color = 0xFFFFFF)
         embed.set_thumbnail(url="https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/img_mon.png")
@@ -561,9 +561,11 @@ async def 데이트(ctx):
         'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/3.png'
     ]
     random_code = random.choice(code_lines)
-    embed = discord.Embed()
-    embed.set_thumbnail(url=random_code)
-    await ctx.send(embed=embed)
+
+    urllib.request.urlretrieve(str(random_code), "emoticon.png")
+    image = discord.File("emoticon.png", filename="image.png")
+
+    await ctx.send(file=image)
 
 @bot.command(aliases=['유저','조회'])
 async def 캐릭터(ctx, Search): # return level, job, world, guild, union, floor
