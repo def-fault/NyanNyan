@@ -515,7 +515,7 @@ async def EXP교환권(ctx, startlevel, endlevel=0):
         startlevel, endlevel = endlevel, startlevel
 
     if endlevel == 0:
-        embed = discord.Embed(title=str(int(startlevel)) + "레벨에서 레벨업하기 위해 필요한 EXP교환권 갯수", description=str(EXPcal(int(startlevel))) + "개" + " (EXP교환권 100개 당 "+ 100/EXPcal(int(startlevel)) * 100 +"%)", color=0x007FFF)
+        embed = discord.Embed(title=str(int(startlevel)) + "레벨에서 레벨업하기 위해 필요한 EXP교환권 갯수", description=str(EXPcal(int(startlevel))) + "개" + " (EXP교환권 100개 당 " + str(round(100/EXPcal(int(startlevel)) * 100,5)) +"%)", color=0x007FFF)
         embed.set_thumbnail(url="https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/img_exp.png")
     else:
         embed = discord.Embed(title=str(int(startlevel)) + "레벨에서 " + str(endlevel) + "레벨까지 필요한 EXP교환권 갯수", description=str(EXPcal(int(startlevel),int(endlevel))) + "개", color=0x007FFF)
