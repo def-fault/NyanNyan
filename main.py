@@ -480,12 +480,10 @@ async def 주사위(ctx):
 
 @bot.command(aliases=['뽑기','당첨'])
 async def 추첨(ctx, *args):
-    await ctx.send("냥냥! 이번 주도 성실하게 보냈구냥!")
     arguments = ', '.join(args)
-    await ctx.send(f'총 {len(args)}명이 추첨 대상이다냥!')
+    await ctx.send(f'냥냥! 총 {len(args)}명이 추첨 대상이다냥!')
     embed = discord.Embed(title="추첨자 명단", description = arguments, color = 0xFFFFFF)
     await ctx.send(embed=embed)
-    await ctx.send("고생한 길드원들을 위해 선물을 준비했다구요! 냥!")
     await ctx.send("두구두구냥~ 행운의 당첨자는 바로! 냥냥냥~!")
     choicelist = random.choice(args)
     embed = discord.Embed(title="당첨자", description = choicelist, color = 0xFFFFFF)
@@ -517,7 +515,7 @@ async def EXP교환권(ctx, startlevel, endlevel=0):
         startlevel, endlevel = endlevel, startlevel
 
     if endlevel == 0:
-        embed = discord.Embed(title=str(int(startlevel)) + "레벨에서 레벨업하기 위해 필요한 EXP교환권 갯수", description=str(EXPcal(int(startlevel))) + "개", color=0x007FFF)
+        embed = discord.Embed(title=str(int(startlevel)) + "레벨에서 레벨업하기 위해 필요한 EXP교환권 갯수", description=str(EXPcal(int(startlevel))) + "개" + " (EXP교환권 100개 당 "+ 100/EXPcal(int(startlevel)) * 100 +"%)", color=0x007FFF)
         embed.set_thumbnail(url="https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/img_exp.png")
     else:
         embed = discord.Embed(title=str(int(startlevel)) + "레벨에서 " + str(endlevel) + "레벨까지 필요한 EXP교환권 갯수", description=str(EXPcal(int(startlevel),int(endlevel))) + "개", color=0x007FFF)
