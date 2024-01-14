@@ -556,7 +556,7 @@ async def 데이트(ctx):
     code_lines = [
         'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/1.png',
         'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/2.png',
-        'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/3.png'
+        'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/3.png',
         'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/4.png'
     ]
     random_code = random.choice(code_lines)
