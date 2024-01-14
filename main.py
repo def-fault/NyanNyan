@@ -551,7 +551,7 @@ async def 익몬(ctx, level):
 async def 여친생길확률(ctx):
     await ctx.channel.send('...')
 
-@bot.command(aliases=['사귀자','사랑해')
+@bot.command(aliases=['사귀자','사랑해'])
 async def 데이트(ctx):
     code_lines = [
         'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/1.png',
