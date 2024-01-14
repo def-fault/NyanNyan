@@ -507,7 +507,7 @@ async def 분배(ctx, N, amount):
         await ctx.send(embed=embed)
         await ctx.send("이렇게 분배하면 모두 " + number_to_korean(int(dist * 0.95)) + "메소씩 공평하게 나눠 가진다냥!")
 
-@bot.command(aliases=['EXP쿠폰'])
+@bot.command(aliases=['EXP쿠폰','EXP','exp교환권','exp','Exp','exp쿠폰'])
 async def EXP교환권(ctx, startlevel, endlevel=0):
     await ctx.send('냥냥! EXP 교환권을 모아온거냥?')
     # 끝 레벨이 더 작을 경우 # 끝 레벨이 0이 아닐 경우
@@ -551,12 +551,13 @@ async def 익몬(ctx, level):
 async def 여친생길확률(ctx):
     await ctx.channel.send('...')
 
-@bot.command(aliases=['사귀자'])
+@bot.command(aliases=['사귀자','사랑해')
 async def 데이트(ctx):
     code_lines = [
         'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/1.png',
         'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/2.png',
         'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/3.png'
+        'https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/4.png'
     ]
     random_code = random.choice(code_lines)
 
