@@ -646,14 +646,21 @@ async def 추옵(ctx, Search):
 @bot.command(aliases=['6차','HEXA','Hexa','hexa'])
 async def 헥사(ctx, startlevel, endlevel=0):
     await ctx.send('냥냥! 솔에르다를 모아온 거냥?')
+
     # 끝 레벨이 더 작을 경우 # 끝 레벨이 0이 아닐 경우
     if (int(startlevel) > int(endlevel) & endlevel != 0):
         startlevel, endlevel = endlevel, startlevel
 
     Sol6, Piece6, Sol5, Piece5, Sol4, Piece4 = Hexa(int(startlevel), int(endlevel))
+
+    # 해금에 필요한 솔에르다량
+    if (int(startlevel) == 0 & int(endlevel) == 0):
+        Sol6, Piece6 = "-", "-"
+        Sol5, Piece5 = 4, 75
+        Sol4, Piece4 = 3, 50
+
     d = [["Origin(6th)", Sol6, Piece6], ["Reinforce(5th)", Sol5, Piece5], ["Mastery(4th)", Sol4, Piece4]]
     df = pd.DataFrame(d, columns=['Kind', 'Sol Erda', 'Sol Piece'])
-
 
     output = t2a(
         header=list(df.columns),
@@ -664,17 +671,25 @@ async def 헥사(ctx, startlevel, endlevel=0):
     code_block_content = f"""\
     ```{output}```
     """
-
-    if endlevel == 0:
-        embed = discord.Embed(title=str(int(startlevel)) + "레벨에서 레벨업하기 위해 필요한 \n 솔에르다와 솔에르다 조각 갯수", description=code_block_content, color=0x7b40e3)
+    if (int(startlevel) == 0 & int(endlevel) == 0):
+        embed = discord.Embed(title="해금에 필요한 솔에르다와 솔에르다 조각 갯수",description=code_block_content, color=0x7b40e3)
         embed.set_thumbnail(url="https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/img_six.png")
-        #embed.add_field(name="Table in Code Block", value=code_block_content, inline=True)
-        await ctx.send(embed=embed ) #
-    else:
-        embed = discord.Embed(title=str(int(startlevel)) + "레벨에서 " + str(endlevel) + "레벨까지 필요한 \n 솔에르다와 솔에르다 조각 갯수", description=code_block_content, color=0x7b40e3)
-        embed.set_thumbnail(url="https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/img_six.png")
-        #embed.add_field(name="Table in Code Block", value=code_block_content, inline=True)
+        # embed.add_field(name="Table in Code Block", value=code_block_content, inline=True)
         await ctx.send(embed=embed)
+    else:
+        if endlevel == 0:
+            embed = discord.Embed(title=str(int(startlevel)) + "레벨에서 레벨업하기 위해 필요한 \n 솔에르다와 솔에르다 조각 갯수", description=code_block_content, color=0x7b40e3)
+            embed.set_thumbnail(url="https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/img_six.png")
+            #embed.add_field(name="Table in Code Block", value=code_block_content, inline=True)
+            await ctx.send(embed=embed ) #
+        else:
+            embed = discord.Embed(title=str(int(startlevel)) + "레벨에서 " + str(endlevel) + "레벨까지 필요한 \n 솔에르다와 솔에르다 조각 갯수", description=code_block_content, color=0x7b40e3)
+            embed.set_thumbnail(url="https://raw.githubusercontent.com/def-fault-self/Project-Nyan/main/img_six.png")
+            #embed.add_field(name="Table in Code Block", value=code_block_content, inline=True)
+            await ctx.send(embed=embed)
+
+
+
 
 @bot.command(aliases=['들어와', 'join'])
 async def 입장(ctx):
@@ -705,7 +720,7 @@ async def help(ctx):
         embed.add_field(name="▶ 메이플 유틸리티", value="", inline=False)
         embed.add_field(name="&극성비 &비약 &극한성장의비약  ", value="\n-  N레벨에 극성비로 오르는 경험치를 계산합니다.", inline=False)
         embed.add_field(name="&익몬 &익스트림 &몬스터파크 ", value="- N레벨에 익몬으로 오르는 경험치를 계산합니다.", inline=False)
-        embed.add_field(name="&EXP교환권 &EXP쿠폰", value="- N레벨에 EXP교환권로 오르는 경험치를 계산합니다.\n" + "- N레벨에서 M레벨까지 필요한 EXP 교환권 갯수를 계산합니다.", inline=False)
+        embed.add_field(name="&EXP교환권 &EXP쿠폰 &EXP", value="- N레벨에 EXP교환권로 오르는 경험치를 계산합니다.\n" + "- N레벨에서 M레벨까지 필요한 EXP 교환권 갯수를 계산합니다.", inline=False)
         embed.add_field(name="&헥사 &6차 &HEXA &hexa", value="- N레벨에서 필요한 헥사 재료 갯수를 검색합니다.\n" + "- N레벨에서 M레벨까지 필요한 헥사 재료 갯수를 검색합니다.", inline=False)
         embed.add_field(name="&추옵 &추가옵션 &무기 ", value="- 무기에 붙는 추가옵션 등급표를 검색합니다.", inline=False)
         embed.add_field(name="&캐릭터 &조회 &유저 ", value="- 유저의 캐릭터 정보를 검색합니다.", inline=False)
@@ -724,7 +739,7 @@ async def help(ctx):
         embed.add_field(name="", value="", inline=False)
 
         embed.add_field(name="▶ 냥냥이랑 대화하기", value="", inline=False)
-        embed.add_field(name="&사귀자", value="- 냥냥이에게 데이트를 신청합니다.", inline=False)
+        embed.add_field(name="&데이트 &사귀자 &사랑해", value="- 냥냥이에게 데이트를 신청합니다.", inline=False)
         embed.add_field(name="&여친생길확률", value="- 여자친구가 생길 확률을 계산합니다.", inline=False)
 
         await ctx.send(embed=embed)
